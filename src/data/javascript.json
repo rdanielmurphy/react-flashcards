@@ -1,0 +1,18 @@
+{
+    "questions": [{
+        "question": "What's the difference between apply() and call()?",
+        "answer": "Both can be called on **functions**, which they run in the context/scope of the first argument. In **call** the subsequent arguments are passed in to the function as they are, while **apply** expects the second argument to be an array that it unpacks as arguments for the called function.\n```js\nfunction foo(name, age, size) {\n\tthis.name = name;\n\tthis.age = age;\n\tthis.size = size;\n}\n ```\n```js\nfoo.call(obj, 'john', '18', '73');\nfoo.apply(obj, ['john', '18', '73']);\n```\n"
+    }, {
+        "question" : "What is a potential pitfall with using typeof bar === 'object' to determine if bar is an object? How can this pitfall be avoided?\n",
+        "answer" : "Although **typeof bar === 'object'** is a reliable way of checking if bar is an object, the surprising gotcha in JavaScript is that **null** is also considered an **object!**"
+    }, {
+        "question" : "What will the code below output to the console and why?\n```js\n(function(){\n\tvar a = b = 3;\n})();\n\nconsole.log('a defined? ' + (typeof a !== 'undefined'));\nconsole.log(['b defined? ' + (typeof b !== 'undefined'));\n ```",
+        "answer" : "```js\na defined? false\nb defined? true\n```\n\n(b is a global in this case)"
+    }, {
+        "question" : "What is NaN? What is its type? How can you reliably test if a value is equal to NaN?",
+        "answer" : "The NaN property represents a value that is “not a number”. This special value results from an operation that could not be performed either because one of the operands was non-numeric **(e.g., 'abc' / 4)**, or because the result of the operation is non-numeric."
+    }]
+}
+
+
+

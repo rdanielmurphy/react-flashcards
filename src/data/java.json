@@ -1,0 +1,9 @@
+{
+    "questions": [{
+        "question": "What is classloader?",
+        "answer": "The classloader is a subsystem of JVM that is used to load classes and interfaces.There are many types of classloaders e.g. Bootstrap classloader, Extension classloader, System classloader, Plugin classloader etc."
+    }]
+}
+
+
+
