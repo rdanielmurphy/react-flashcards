@@ -11,8 +11,24 @@
     }, {
         "question" : "What is NaN? What is its type? How can you reliably test if a value is equal to NaN?",
         "answer" : "The NaN property represents a value that is “not a number”. This special value results from an operation that could not be performed either because one of the operands was non-numeric **(e.g., 'abc' / 4)**, or because the result of the operation is non-numeric."
-    }]
+    }, {
+        "question" : "What is the data structure of the DOM?",
+        "answer" : "The DOM is a tree."
+    }, {
+        "question" : "What is the worst-case lookup time for a balanced tree?",
+        "answer" : "O(log n)"
+    }, {
+        "question" : "What is the worst-case lookup time for an un-balanced tree?",
+        "answer" : "O(n) where n is the height of the tree/number of nodes."
+    }, {
+        "question" : "What is JavaScript hoisting?",
+        "answer" : "Hoisting is the JavaScript interpreter's action of moving all variable and function declarations to the top of the current scope. However, only the actual declarations are hoisted. Any assignments are left where they are."
+    }, {
+        "question" : "What does the this keyword refer to in JavaScript?",
+        "answer" : "The 'this' keyword in Javascript always refers to the 'owner' of the function that is being executed.<br>If no explicit owner is defined, then the top most owner, the window object, is referenced."
+    }, {
+        "question" : "What is the difference between '==' and '===' in JavaScript?",
+        "answer" : "the '==' operator is a non-strict comparison operator, that may do type conversions.  The '===' operater is a strict comparison operator which does not do any type conversion."
+    }
+    ]
 }
-
-
-
