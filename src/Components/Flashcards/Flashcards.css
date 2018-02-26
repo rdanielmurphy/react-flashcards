@@ -8,6 +8,8 @@ pre {
     background-color: whitesmoke;
     border: 1px solid #cccccc;
     text-align: left; 
+    display: inline-table;
+    float: left;
 }
 
 code {
@@ -41,6 +43,7 @@ code {
 	transform-style: preserve-3d;
   margin-top: 2em;
   transition: 0.2s;
+    
   
   &.back {
   
@@ -78,6 +81,8 @@ code {
   animation: fadeIn 0.6s;
   line-height: 1.5;
   font-size: 14px;
+  margin-bottom: 10%;
+  display: grid;
 }
 
 .header {

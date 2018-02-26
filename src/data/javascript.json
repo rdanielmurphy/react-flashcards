@@ -25,10 +25,22 @@
         "answer" : "Hoisting is the JavaScript interpreter's action of moving all variable and function declarations to the top of the current scope. However, only the actual declarations are hoisted. Any assignments are left where they are."
     }, {
         "question" : "What does the this keyword refer to in JavaScript?",
-        "answer" : "The 'this' keyword in Javascript always refers to the 'owner' of the function that is being executed.<br>If no explicit owner is defined, then the top most owner, the window object, is referenced."
+        "answer" : "The 'this' keyword in Javascript always refers to the 'owner' of the function that is being executed.\n\n If no explicit owner is defined, then the top most owner, the window object, is referenced."
     }, {
         "question" : "What is the difference between '==' and '===' in JavaScript?",
         "answer" : "the '==' operator is a non-strict comparison operator, that may do type conversions.  The '===' operater is a strict comparison operator which does not do any type conversion."
+    }, {
+        "question" : "Name some features of ES6",
+        "answer" : "* arrows\n* classes\n* enhanced object literals\n* template strings\n* destructuring\n* default + rest + spread\n* let + const\n* iterators + for..of\n* generators\n* unicode\n* modules\n* module loaders\n* map + set + weakmap + weakset\n* proxies\n* symbols\n* subclassable built-ins\n* promises\n* math + number + string + array + object APIs\n* binary and octal literals\n* reflect api\n* tail calls"
+    }, {
+        "question": "var vs let vs const",
+        "answer": "**var** is function scope while **let** and **const** are block scope, which means any time you’ve got a set of curly brackets you have block scope.\n\nWith let and consts, you can only declare a variable inside of its scope once.  With var you can declare the same variable more than once within the same scope.\n\nconst variable cannot be updated unless it's an object then it's properties can be updated.\n\nObject.freeze is another way to make a variable immutable."
+    }, {
+        "question": "What is an IIFE?",
+        "answer": "IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.\nIt is a design pattern which is also known as Self-Executing Anonymous Function and contains two major parts. The first is the anonymous function with lexical scope enclosed within the Grouping Operator (). This prevents accessing variables within the IIFE idiom as well as polluting the global scope.\nThe second part is creating the immediately executing function expression (), through which the JavaScript engine will directly interpret the function.\n```js\n (function () { \n\t var aName = \"Barry\";\n })();\n // Variable name is not accessible from the outside scope\naName // throws \"Uncaught ReferenceError: aName is not defined\""
+    }, {
+        "question": "What is a polyfill?",
+        "answer": "A **polyfill** is a type of shim and a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers, e.g., to support canvas (an HTML5 feature) in older browsers. "
     }
     ]
 }

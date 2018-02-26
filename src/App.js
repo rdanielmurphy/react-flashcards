@@ -22,6 +22,7 @@ class App extends Component {
       <div className="App">
       <Menu ref={(menu) => { this._menu = menu; }}>
         <a id="js" className="menu-item" href="#" onClick={this.handleClick.bind(this)}><FA name="code" />&nbsp;&nbsp;&nbsp;<span>JavaScript</span></a>
+        <a id="htmlcss" className="menu-item" href="#" onClick={this.handleClick.bind(this)}><FA name="html5" />&nbsp;&nbsp;&nbsp;&nbsp;<span>HTML/CSS</span></a>
         <a id="java" className="menu-item" href="#" onClick={this.handleClick.bind(this)}><FA name="terminal" />&nbsp;&nbsp;&nbsp;<span>Java</span></a>
         <a id="theory" className="menu-item" href="#" onClick={this.handleClick.bind(this)}><FA name="linux" />&nbsp;&nbsp;&nbsp;<span>CS Theory</span></a>
         <a id="puzzles" className="menu-item" href="#" onClick={this.handleClick.bind(this)}><FA name="puzzle-piece" />&nbsp;&nbsp;&nbsp;<span>Puzzles</span></a>

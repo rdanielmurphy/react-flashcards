@@ -8,6 +8,7 @@ import theoryData from '../../data/theory.json';
 import puzzlesData from '../../data/puzzles.json';
 import blockchainData from '../../data/blockchain.json';
 import greData from '../../data/gre.json';
+import htmlCSSData from '../../data/htmlcss.json';
 
 var dataMapping = {
     "js" : {
@@ -33,6 +34,10 @@ var dataMapping = {
     "blockchain" :  {
         "name" : "Blockchain",
         "cards" : blockchainData
+    },
+    "htmlcss" :  {
+        "name" : "HTML/CSS",
+        "cards" : htmlCSSData
     }
 }
 
@@ -88,8 +93,7 @@ class Card extends React.Component {
         className={'card ' + cardClass}
         onClick={() => this.setState({showAnswer: !this.state.showAnswer})}
       >
-      <span className='card__counter'>{this.props.cardNumber + 1}</span>
-        <div 
+      <div 
           className='card__flip-card'
           onClick={ () => {
             this.setState({showAnswer: !this.state.showAnswer});
