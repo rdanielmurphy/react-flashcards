@@ -1,0 +1,7 @@
+===QUESTION===
+What does the this keyword refer to in JavaScript?
+
+===ANSWER===
+The 'this' keyword in Javascript always refers to the 'owner' of the function that is being executed.
+
+If no explicit owner is defined, then the top most owner, the window object, is referenced.

@@ -1,0 +1,5 @@
+===QUESTION===
+What is the difference between '==' and '===' in JavaScript?
+
+===ANSWER===
+the '==' operator is a non-strict comparison operator, that may do type conversions.  The '===' operater is a strict comparison operator which does not do any type conversion.

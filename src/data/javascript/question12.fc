@@ -1,0 +1,11 @@
+===QUESTION===
+var vs let vs const
+
+===ANSWER===
+**var** is function scope while **let** and **const** are block scope, which means any time you’ve got a set of curly brackets you have block scope.
+
+With let and consts, you can only declare a variable inside of its scope once.  With var you can declare the same variable more than once within the same scope.
+
+const variable cannot be updated unless it's an object then it's properties can be updated.
+
+Object.freeze is another way to make a variable immutable.

@@ -1,0 +1,5 @@
+===QUESTION===
+What is the worst-case lookup time for an un-balanced tree?
+
+===ANSWER===
+O(n) where n is the height of the tree/number of nodes.

@@ -1,0 +1,17 @@
+===QUESTION===
+Name some features of ES6
+
+===ANSWER===
+|                                               | 
+| --------------------------------------------- |:-----------------------------:|
+| arrows                                        | template strings              |
+| classes                                       | destructuring                 |
+| enhanced object literals                      | default + rest + spread       |
+| let + const                                   | iterators + for..of           |
+| generators                                    | modules                       |
+| unicode                                       | tail calls                    |
+| module loaders                                | map + set + weakmap + weakset |
+| proxies                                       | symbols                       |
+| subclassable built-ins                        | promises                      |
+| math + number + string + array + object APIs  | binary and octal literals     |
+| reflect api                                   |                               |

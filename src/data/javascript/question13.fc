@@ -1,0 +1,5 @@
+===QUESTION===
+What is a polyfill?,
+
+===ANSWER===
+A **polyfill** is a type of shim and a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers, e.g., to support canvas (an HTML5 feature) in older browsers.

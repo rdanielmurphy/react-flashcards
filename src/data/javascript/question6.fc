@@ -1,0 +1,5 @@
+===QUESTION===
+What is the worst-case lookup time for a balanced tree?
+
+===ANSWER===
+O(log n)
