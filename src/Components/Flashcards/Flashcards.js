@@ -9,6 +9,9 @@ import puzzlesData from '../../data/puzzles.json';
 import blockchainData from '../../data/blockchain.json';
 import greData from '../../data/gre.json';
 import htmlCSSData from '../../data/htmlcss.json';
+import FlashCardData from '../../data/flashcard.data';
+
+console.log("flashcard data", FlashCardData);
 
 var dataMapping = {
     "js" : {
@@ -140,9 +143,9 @@ class CardContainer extends React.Component {
   }
     
   setFlashcards(cardsId) {
-    this._header.setText(dataMapping[cardsId].name);
+    this._header.setText(FlashCardData[cardsId].name);
     this.setState({
-      cards: dataMapping[cardsId].cards,
+      cards: FlashCardData[cardsId].cards,
       cardNumber: 0
     });
   }

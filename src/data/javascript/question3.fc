@@ -1,0 +1,23 @@
+===QUESTION===
+What will the code below output to the console and why?
+
+```js
+
+(function(){
+    var a = b = 3;
+})();
+
+console.log('a defined? ' + (typeof a !== 'undefined'));
+console.log(['b defined? ' + (typeof b !== 'undefined'));
+
+```
+
+===ANSWER===
+```js
+
+a defined? false
+b defined? true
+
+```
+
+(b is a global in this case)
