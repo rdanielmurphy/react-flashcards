@@ -1,0 +1,15 @@
+===QUESTION===
+Name the new features of HTML 5
+
+===ANSWER===
+* <video> and <audio>
+* <input> type attributes
+* <canvas>
+* <header> and <footer>
+* <article> and <section>
+* <output>
+* <details>
+* <figure> and <figcaption>
+* <progress> and <meter>
+* <datalist>
+* ...etc

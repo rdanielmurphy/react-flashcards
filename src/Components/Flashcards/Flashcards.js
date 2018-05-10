@@ -1,48 +1,9 @@
 import React from 'react';
-import Immutable from 'immutable';
 import './Flashcards.css';
 import ReactMarkdown from 'react-markdown';
-import jsData from '../../data/javascript.json';
-import javaData from '../../data/java.json';
-import theoryData from '../../data/theory.json';
-import puzzlesData from '../../data/puzzles.json';
-import blockchainData from '../../data/blockchain.json';
-import greData from '../../data/gre.json';
-import htmlCSSData from '../../data/htmlcss.json';
 import FlashCardData from '../../data/flashcard.data';
 
-console.log("flashcard data", FlashCardData);
-
-var dataMapping = {
-    "js" : {
-        "name" : "JavaScript",
-        "cards" : jsData
-    },
-    "java" :  {
-        "name" : "Java",
-        "cards" : javaData
-    },
-    "theory" :  {
-        "name" : "CS Theory",
-        "cards" : theoryData
-    },
-    "puzzles" :  {
-        "name" : "Puzzles",
-        "cards" : puzzlesData
-    },
-    "gre" :  {
-        "name" : "GRE Vocab",
-        "cards" : greData
-    },
-    "blockchain" :  {
-        "name" : "Blockchain",
-        "cards" : blockchainData
-    },
-    "htmlcss" :  {
-        "name" : "HTML/CSS",
-        "cards" : htmlCSSData
-    }
-}
+console.log("data", FlashCardData);
 
 class Header extends React.Component {
   constructor() {
@@ -135,7 +96,7 @@ class CardContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      cards: jsData,
+      cards: FlashCardData.js.cards,
       cardNumber: 0
     };
     this.state.cardNumber === this.state.cards.questions.length + 1 ? false : this.boundShowPrevCard = this.showPrevCard.bind(this);

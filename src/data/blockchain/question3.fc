@@ -1,0 +1,5 @@
+===QUESTION===
+What kind of cryptographic system does blockchain use to secure the legder?
+
+===ANSWER===
+Asymmetric cryptography, also known as public key cryptography.  Aymmetric cryptography uses public and private keys to encrypt and decrypt data.

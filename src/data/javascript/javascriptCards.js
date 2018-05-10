@@ -13,7 +13,7 @@ import jsfc12 from "./question12.fc";
 import jsfc13 from "./question13.fc";
 import jsfc14 from "./question14.fc";
 
-const FlashCardData = {
+const jsCards = {
     questions : [
         jsfc1,
         jsfc2,
@@ -32,4 +32,4 @@ const FlashCardData = {
     ]
 };
 
-export default FlashCardData;
+export default jsCards;

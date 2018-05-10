@@ -1,0 +1,8 @@
+===QUESTION===
+Explain CSS pseudo elements
+
+===ANSWER===
+psuedo-elements allow you to style specific parts of an element. Some examples of pseudo-elements are:
+
+::after
+::before

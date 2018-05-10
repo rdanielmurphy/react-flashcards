@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import fcData from './data/flashcard.data'
 //import 'font-awesome/css/font-awesome.min.css';
 
 var head  = document.getElementsByTagName('head')[0];

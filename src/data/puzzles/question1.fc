@@ -1,0 +1,10 @@
+===QUESTION===
+You have two ropes, and each takes exactly one hour to burn.  How would you user them to time exactly 15 minutes?
+
+===ANSWER===
+```js
+1. Light Rope 1 at both ends and Rope 2 at one end.
+2. When the two flames on Rope 1 meet, 30 minutes will have passed. Rope 2 has 30 minutes left of burn time.
+3. At that point, light Rope 2 at the other end.
+4. In exactly 15 minutes, Rope 2 will be completely burnt.
+```
