@@ -3,39 +3,6 @@ import './Flashcards.css';
 import ReactMarkdown from 'react-markdown';
 import FlashCardData from '../../data/flashcard.data';
 
-console.log("data", FlashCardData);
-
-class Header extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      text : ""
-    }
-  }
-
-  setText(text) {
-    this.setState({
-      text: text
-    });
-  }
-    
-  render() {
-    return (
-      <div className='header'>
-        <div className='header-content header-content__left'>
-          
-        </div>
-        <div className='header-content header-content__middle'>
-          {this.state.text} Flash Cards
-        </div>
-        <div className='header-content header-content__right'>
-          
-        </div>
-      </div>
-    )
-  }
-}
-
 class Card extends React.Component {
   
   constructor() {
@@ -104,7 +71,6 @@ class CardContainer extends React.Component {
   }
     
   setFlashcards(cardsId) {
-    this._header.setText(FlashCardData[cardsId].name);
     this.setState({
       cards: FlashCardData[cardsId].cards,
       cardNumber: 0
@@ -157,7 +123,6 @@ class CardContainer extends React.Component {
   render() {
     return (
       <div>
-        <Header ref={(header) => { this._header = header; }}/>
         {this.generateCards()}
         <div className='card-container__dots-wrapper'>
           {this.generateCount()}

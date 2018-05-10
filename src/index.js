@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 //import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.css'
 
 var head  = document.getElementsByTagName('head')[0];
 var link  = document.createElement('link');

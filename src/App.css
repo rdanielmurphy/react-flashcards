@@ -32,7 +32,7 @@
   width: 36px;
   height: 30px;
   left: 36px;
-  top: 20px;
+  top: 10px;
 }
 
 /* Color/shape of burger icon bars */
@@ -79,4 +79,8 @@ float: left;
     color: #b8b7ad;
     font-family: 'Raleway', Arial, sans-serif;
     text-decoration: none;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
 }
