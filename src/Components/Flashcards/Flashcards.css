@@ -75,6 +75,13 @@ code {
 .card__content--front {
   animation: fadeInUp 0.5s;
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35em;
 }
 
 .card__content--back {
@@ -276,4 +283,9 @@ height: 40px;
     color: dodgerblue;
     transition: 0.5s;
   }
+}
+
+.markdownContainer {
+  height: 35em;
+  overflow-y: scroll;
 }

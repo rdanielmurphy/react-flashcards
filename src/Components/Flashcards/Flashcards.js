@@ -4,14 +4,14 @@ import ReactMarkdown from 'react-markdown';
 import FlashCardData from '../../data/flashcard.data';
 
 class Card extends React.Component {
-  
+
   constructor() {
     super();
     this.state = {
       showAnswer: false
     }
   }
- 
+
   render() {
     const content = this.state.showAnswer ? this.props.backContent : this.props.frontContent;
     const iconClass = this.state.showAnswer ? 'reply' : 'share';
@@ -20,35 +20,36 @@ class Card extends React.Component {
     const actionClass = this.state.showAnswer ? 'active' : '';
 
     return (
-      <div 
+      <div
         className={'card ' + cardClass}
-        onClick={() => this.setState({showAnswer: !this.state.showAnswer})}
+        onClick={() => this.setState({ showAnswer: !this.state.showAnswer })}
       >
-      <div 
+        <div
           className='card__flip-card'
-          onClick={ () => {
-            this.setState({showAnswer: !this.state.showAnswer});
+          onClick={() => {
+            this.setState({ showAnswer: !this.state.showAnswer });
           }}
         >
-
-          <span className={'fa fa-${iconClass}'}/>
+          <span className={'fa fa-${iconClass}'} />
         </div>
-        <ReactMarkdown className={'card__content--' + contentClass} source={content} />
-        <div className={'card__actions ' +  actionClass}>
-          <div 
+        <div className="markdownContainer">
+          <ReactMarkdown className={'card__content--' + contentClass} source={content} />
+        </div>
+        <div className={'card__actions ' + actionClass}>
+          <div
             className='card__prev-button'
             onClick={() => {
               this.props.showPrevCard();
-              this.setState({showAnswer: false});
+              this.setState({ showAnswer: false });
             }}
           >
             Prev
           </div>
-          <div 
+          <div
             className='card__next-button'
             onClick={() => {
               this.props.showNextCard();
-              this.setState({showAnswer: false});
+              this.setState({ showAnswer: false });
             }}
           >
             Next
@@ -69,66 +70,72 @@ class CardContainer extends React.Component {
     this.state.cardNumber === this.state.cards.questions.length + 1 ? false : this.boundShowPrevCard = this.showPrevCard.bind(this);
     this.boundShowNextCard = this.showNextCard.bind(this);
   }
-    
+
   setFlashcards(cardsId) {
     this.setState({
       cards: FlashCardData[cardsId].cards,
       cardNumber: 0
     });
   }
-  
+
   showNextCard() {
     if (this.state.cardNumber < this.state.cards.questions.length - 1) {
-        this.setState({cardNumber: this.state.cardNumber += 1});
+      this.setState({ cardNumber: this.state.cardNumber += 1 });
     } else {
-        alert("Finsihed!");
+      alert("Finished!");
     }
   }
-  
+
   showPrevCard() {
     if (this.state.cardNumber !== 0) {
-      this.setState({cardNumber: this.state.cardNumber -= 1});
+      this.setState({ cardNumber: this.state.cardNumber -= 1 });
     }
   }
-  
+
   setCard(card) {
     const newCards = this.state.cards.push(card);
-    this.setState({cards: newCards});
+    this.setState({ cards: newCards });
   }
-  
+
   generateCount() {
     const times = this.state.cards.questions.length;
     const s = (this.state.cardNumber + 1) + " / " + times;
     return (<div>
-            {s}
-            </div>);
+      {s}
+    </div>);
   }
-  
+
   generateCards() {
     const cards = this.state.cards;
-     const cardsList = cards.questions.map((card) => {
-        return (
-          <Card 
-            frontContent={card.question}
-            backContent={card.answer}
-            showNextCard={this.boundShowNextCard}
-            showPrevCard = {this.boundShowPrevCard}
-            cardNumber={this.state.cardNumber}
-          />
-          );
-      })
-     return(cardsList[this.state.cardNumber]); 
+    const cardsList = cards.questions.map((card) => {
+      return (
+        <Card
+          frontContent={card.question}
+          backContent={card.answer}
+          showNextCard={this.boundShowNextCard}
+          showPrevCard={this.boundShowPrevCard}
+          cardNumber={this.state.cardNumber}
+        />
+      );
+    })
+    return (cardsList[this.state.cardNumber]);
   }
 
   render() {
     return (
-      <div>
-        {this.generateCards()}
-        <div className='card-container__dots-wrapper'>
-          {this.generateCount()}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            {this.generateCards()}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12 card-container__dots-wrapper">
+            {this.generateCount()}
+          </div>
         </div>
       </div>
-   );
+    );
   }
 }
 
