@@ -81,6 +81,29 @@ float: left;
     text-decoration: none;
 }
 
-.navbar {
-  margin-bottom: 0px !important;
+.flashcardnavbar {
+  z-index: 100;
+  width: 100%;
+  background-color: lightgrey;
+  position: fixed;
+  margin: auto;
+}
+
+.navbarHeader {
+  width: 100%;
+  background-color: lightgrey;
+  height: 3em;
+  text-align: center;
+  line-height: 50px;
+  margin: auto;
+}
+
+.navbarSubHeader {
+  width: 100%;
+  background-color: black;
+  color: white;
+  height: 2em;
+  text-align: center;
+  line-height: 25px;
+  margin: auto;
 }

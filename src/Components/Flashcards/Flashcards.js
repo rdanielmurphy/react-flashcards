@@ -123,7 +123,7 @@ class CardContainer extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container gridContainer">
         <div className="row">
           <div className="col-md-12">
             {this.generateCards()}

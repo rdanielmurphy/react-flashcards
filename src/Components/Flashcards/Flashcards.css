@@ -32,16 +32,16 @@ code {
 
 .card  {
   width: 90%;
-  height: 35em;
+  min-height: 35em;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   background: white;
   box-shadow: 2px 3px 23px rgba(0,0,0,.1);
-  padding: 0em 3em;
+  padding: 0em 1em;
 	transform-style: preserve-3d;
-  margin-top: 2em;
+  margin-top: 4em;
   transition: 0.2s;
     
   
@@ -75,13 +75,8 @@ code {
 .card__content--front {
   animation: fadeInUp 0.5s;
   font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 35em;
 }
 
 .card__content--back {
@@ -286,6 +281,9 @@ height: 40px;
 }
 
 .markdownContainer {
-  height: 35em;
   overflow-y: scroll;
+}
+
+.gridContainer {
+  padding-top: 3em;
 }

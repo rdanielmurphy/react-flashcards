@@ -21,17 +21,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#home">Flashcards</a>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Navbar.Text pullRight>{this.state && this.state.value ? this.state.value : 'hoy'}</Navbar.Text>
-          </Navbar.Collapse>
-        </Navbar>
+        <div className="flashcardnavbar">
+          <h4 className="navbarHeader">
+            Flashcards
+          </h4>
+          <h6 className="navbarSubHeader">
+            { this.state ? this.state.value : "" }
+          </h6>
+        </div>
         <Menu ref={(menu) => { this._menu = menu; }}>
           <a id="js" className="menu-item" href="#" name="JavaScript" onClick={this.handleClick.bind(this)}><FA name="code" />&nbsp;&nbsp;&nbsp;<span>JavaScript</span></a>
           <a id="htmlcss" className="menu-item" name="HTML/CSS" href="#" onClick={this.handleClick.bind(this)}><FA name="html5" />&nbsp;&nbsp;&nbsp;&nbsp;<span>HTML/CSS</span></a>
