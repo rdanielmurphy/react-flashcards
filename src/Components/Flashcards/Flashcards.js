@@ -12,6 +12,10 @@ class Card extends React.Component {
     }
   }
 
+  reset() {
+    this.setState({showAnswer : false});
+  }
+
   render() {
     const content = this.state.showAnswer ? this.props.backContent : this.props.frontContent;
     const iconClass = this.state.showAnswer ? 'reply' : 'share';
@@ -69,18 +73,32 @@ class CardContainer extends React.Component {
     };
     this.state.cardNumber === this.state.cards.questions.length + 1 ? false : this.boundShowPrevCard = this.showPrevCard.bind(this);
     this.boundShowNextCard = this.showNextCard.bind(this);
+    this.currentCard = undefined;
   }
 
   setFlashcards(cardsId) {
+    if (this.currentCard) {
+      this.currentCard.reset();
+    }
+
     this.setState({
       cards: FlashCardData[cardsId].cards,
+      name: FlashCardData[cardsId].name,
       cardNumber: 0
+    }, function () {
+      if (this.listener) {
+        this.listener(this.state.name, this.state.cardNumber, this.state.cards.questions.length);
+      }
     });
   }
 
   showNextCard() {
     if (this.state.cardNumber < this.state.cards.questions.length - 1) {
-      this.setState({ cardNumber: this.state.cardNumber += 1 });
+      this.setState({ cardNumber: this.state.cardNumber += 1 }, function () {
+        if (this.listener) {
+          this.listener(this.state.name, this.state.cardNumber, this.state.cards.questions.length);
+        }
+      });
     } else {
       alert("Finished!");
     }
@@ -88,36 +106,31 @@ class CardContainer extends React.Component {
 
   showPrevCard() {
     if (this.state.cardNumber !== 0) {
-      this.setState({ cardNumber: this.state.cardNumber -= 1 });
+      this.setState({ cardNumber: this.state.cardNumber -= 1 }, function () {
+        if (this.listener) {
+          this.listener(this.state.name, this.state.cardNumber, this.state.cards.questions.length);
+        }
+      });
     }
   }
 
-  setCard(card) {
-    const newCards = this.state.cards.push(card);
-    this.setState({ cards: newCards });
-  }
-
-  generateCount() {
-    const times = this.state.cards.questions.length;
-    const s = (this.state.cardNumber + 1) + " / " + times;
-    return (<div>
-      {s}
-    </div>);
+  addFlashcardChangeListener(listener) {
+    this.listener = listener;
   }
 
   generateCards() {
     const cards = this.state.cards;
     const cardsList = cards.questions.map((card) => {
-      return (
-        <Card
+      return (<Card
+          ref={(comp) => this.currentCard = comp}
           frontContent={card.question}
           backContent={card.answer}
           showNextCard={this.boundShowNextCard}
           showPrevCard={this.boundShowPrevCard}
           cardNumber={this.state.cardNumber}
-        />
-      );
-    })
+        />)
+    });
+
     return (cardsList[this.state.cardNumber]);
   }
 
@@ -127,11 +140,6 @@ class CardContainer extends React.Component {
         <div className="row">
           <div className="col-md-12">
             {this.generateCards()}
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12 card-container__dots-wrapper">
-            {this.generateCount()}
           </div>
         </div>
       </div>
