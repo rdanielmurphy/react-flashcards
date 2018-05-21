@@ -9,31 +9,38 @@ import htmlcssCards from "./htmlcss/htmlcssCards";
 const FlashCardData = {
     "js" :  {
         "name" : "JavaScript",
-        "cards" : jsCards
-    },
-    "blockchain" :  {
-        "name" : "Blockchain",
-        "cards" : blockchainCards
-    },
-    "theory" :  {
-        "name" : "Theory",
-        "cards" : theoryCards
-    },
-    "java" :  {
-        "name" : "Java",
-        "cards" : javaCards
-    },
-    "gre" :  {
-        "name" : "GRE",
-        "cards" : greCards
-    },
-    "puzzles" : {
-        "name" : "Puzzles",
-        "cards" : puzzleCards
+        "cards" : jsCards,
+        "fa" : "code"
     },
     "htmlcss" : {
         "name" : "HTML/CSS",
-        "cards" : htmlcssCards
+        "cards" : htmlcssCards,
+        "fa" : "html5"
+    },
+    "blockchain" :  {
+        "name" : "Blockchain",
+        "cards" : blockchainCards,
+        "fa" : "bitcoin"
+    },
+    "theory" :  {
+        "name" : "Theory",
+        "cards" : theoryCards,
+        "fa" : "linux"
+    },
+    "java" :  {
+        "name" : "Java",
+        "cards" : javaCards,
+        "fa" : "terminal"
+    },
+    "gre" :  {
+        "name" : "GRE Vocab",
+        "cards" : greCards,
+        "fa" : "font"
+    },
+    "puzzles" : {
+        "name" : "Puzzles",
+        "cards" : puzzleCards,
+        "fa" : "puzzle-piece"
     }
 };
 
