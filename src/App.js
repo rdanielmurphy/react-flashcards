@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Flashcards from './Components/Flashcards/Flashcards';
+import FlashcardsContainer from './Components/FlashcardsContainer/FlashcardsContainer';
 import { slide as Menu } from 'react-burger-menu'
 import FA from 'react-fontawesome'
-import { Navbar, NavItem } from 'react-bootstrap'
 import FlashCardData from './data/flashcard.data';
 
 class App extends Component {
@@ -20,14 +19,14 @@ class App extends Component {
       let result = (current + 1) + "/" + max;
       scope.setState({ name: name, count: result });
     });
-    this._child.setFlashcards("js");
+    this._child.setFlashcards(Object.keys(FlashCardData)[0]);
   }
 
   render() {
     const getObjects = () => {
       const objs = []
       for (var key in FlashCardData) {
-        objs.push(<a id={key} className="menu-item" href="#" name={FlashCardData[key].name} onClick={this.handleClick.bind(this)}><FA name={FlashCardData[key].fa} />&nbsp;&nbsp;&nbsp;<span>{FlashCardData[key].name}</span></a>)
+        objs.push(<a id={key} key={key} className="menu-item" href="#" name={FlashCardData[key].name} onClick={this.handleClick.bind(this)}><FA name={FlashCardData[key].fa} />&nbsp;&nbsp;&nbsp;<span>{FlashCardData[key].name}</span></a>)
       }
     
       return objs;
@@ -46,7 +45,7 @@ class App extends Component {
         <Menu ref={(menu) => { this._menu = menu; }}>
           { getObjects() }
         </Menu>
-        <Flashcards ref={(child) => { this._child = child; }}></Flashcards>
+        <FlashcardsContainer ref={(child) => { this._child = child; }}></FlashcardsContainer>
       </div>
     );
   }

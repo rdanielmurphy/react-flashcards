@@ -1,10 +1,9 @@
 import React from 'react';
-import './Flashcards.css';
-import ReactMarkdown from 'react-markdown';
+import './FlashcardsContainer.css';
 import FlashCardData from '../../data/flashcard.data';
 import Flashcard from '../Flashcard/Flashcard'
 
-class CardContainer extends React.Component {
+class FlashcardsContainer extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -87,4 +86,4 @@ class CardContainer extends React.Component {
   }
 }
 
-export default CardContainer;
+export default FlashcardsContainer;

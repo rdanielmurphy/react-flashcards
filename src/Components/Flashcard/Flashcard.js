@@ -17,7 +17,6 @@ class Flashcard extends React.Component {
 
   render() {
     const content = this.state.showAnswer ? this.props.backContent : this.props.frontContent;
-    const iconClass = this.state.showAnswer ? 'reply' : 'share';
     const cardClass = this.state.showAnswer ? 'back' : '';
     const contentClass = this.state.showAnswer ? 'back' : 'front';
     const actionClass = this.state.showAnswer ? 'active' : '';
