@@ -1,9 +1,0 @@
-{
-    "questions": [{
-        "question": "What is the difference between a stack and a queue?",
-        "answer": "The main differences between stack and queue are that stack uses LIFO (last in first out) method to access and add data elements whereas Queue uses FIFO (First in first out) method to access and add data elements."
-    }]
-}
-
-
-
