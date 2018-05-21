@@ -214,63 +214,6 @@ code {
   color: #333;
 }
 
-.card__actions {
-  position: absolute;
-  bottom: 10%;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  opacity: 0;
-  transition: 0.3s;
-  left: 0;
-}
-
-.active {
-  opacity: 1 !important;
-}
-
-.card__button {
-  cursor: pointer;
-  padding: 0.5em 0.75em;
-  background: #c3baba;
-  color: #444;
-  transition: 0.2s;
-  border-radius: 50%;
-  
-  &:hover {
-    background: darken(#c3baba, 10%);
-  }
-}
-
-.card__next-button {
-  margin-left: 0.5em;
-}
-
-.card__prev-button {
-  margin-right: 0.5em;
-}
-
-.card-container__dot {
-  margin: 0 1em;
-}
-
-.card-container__dots-wrapper {
-  padding: 1em 0em;
-  margin-top: 1em;
-  text-align: center;
-  
-}
-
-.card-container__dot {
-  color: lightgray;
-  cursor: pointer;
-  
-  &.active {
-    color: dodgerblue;
-    transition: 0.5s;
-  }
-}
-
 .markdownContainer {
   overflow-y: scroll;
 }

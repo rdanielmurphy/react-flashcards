@@ -23,6 +23,8 @@ class App extends Component {
   }
 
   render() {
+    const scope = this;
+
     const getObjects = () => {
       const objs = []
       for (var key in FlashCardData) {
@@ -46,6 +48,42 @@ class App extends Component {
           { getObjects() }
         </Menu>
         <FlashcardsContainer ref={(child) => { this._child = child; }}></FlashcardsContainer>
+        <div className={'card__actions'}>
+          <div
+            className='card__button card__prev-button'
+            onClick={() => {
+              scope._child.showPrevCard();
+            }}
+          >
+            <span className={'fa fa-arrow-circle-left fa-3x'} />
+          </div>
+          {/* <div
+            className='card__button card__prev-button'
+            onClick={() => {
+              this.props.showPrevCard();
+              this.setState({ showAnswer: false });
+            }}
+          >
+            <span className={'fa fa-thumbs-down fa-3x'} />
+          </div>
+          <div
+            className='card__button card__next-button'
+            onClick={() => {
+              this.props.showNextCard();
+              this.setState({ showAnswer: false });
+            }}
+          >
+            <span className={'fa fa-thumbs-up fa-3x'} />
+          </div> */}
+          <div
+            className='card__button card__next-button'
+            onClick={() => {
+              scope._child.showNextCard();
+            }}
+          >
+            <span className={'fa fa-arrow-circle-right fa-3x'} />
+          </div>
+        </div>
       </div>
     );
   }

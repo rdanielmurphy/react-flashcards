@@ -32,6 +32,10 @@ class FlashcardsContainer extends React.Component {
   }
 
   showNextCard() {
+    if (this.currentCard) {
+      this.currentCard.reset();
+    }
+
     if (this.state.cardNumber < this.state.cards.questions.length - 1) {
       this.setState({ cardNumber: this.state.cardNumber += 1 }, function () {
         if (this.listener) {
@@ -44,6 +48,10 @@ class FlashcardsContainer extends React.Component {
   }
 
   showPrevCard() {
+    if (this.currentCard) {
+      this.currentCard.reset();
+    }
+    
     if (this.state.cardNumber !== 0) {
       this.setState({ cardNumber: this.state.cardNumber -= 1 }, function () {
         if (this.listener) {
@@ -64,8 +72,6 @@ class FlashcardsContainer extends React.Component {
           ref={(comp) => this.currentCard = comp}
           frontContent={card.question}
           backContent={card.answer}
-          showNextCard={this.boundShowNextCard}
-          showPrevCard={this.boundShowPrevCard}
           cardNumber={this.state.cardNumber}
         />)
     });
