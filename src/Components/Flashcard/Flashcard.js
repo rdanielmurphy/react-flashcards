@@ -6,13 +6,14 @@ class Flashcard extends React.Component {
 
   constructor() {
     super();
+
     this.state = {
       showAnswer: false
     }
   }
 
   reset() {
-    this.setState({showAnswer : false});
+    this.setState({ showAnswer: false });
   }
 
   render() {
@@ -23,19 +24,16 @@ class Flashcard extends React.Component {
     return (
       <div
         className={'card ' + cardClass}
-        onClick={() => this.setState({ showAnswer: !this.state.showAnswer })}
-      >
-        <div
-          className='card__flip-card'
-          onClick={() => {
+        onClick={() => {
+          if (this.props.backContent) {
             this.setState({ showAnswer: !this.state.showAnswer });
-          }}
-        >
-        </div>
+          }
+        }}
+      >
         <div className="markdownContainer">
           <ReactMarkdown className={'card__content--' + contentClass} source={content} />
         </div>
-      </div>
+      </div >
     );
   }
 }

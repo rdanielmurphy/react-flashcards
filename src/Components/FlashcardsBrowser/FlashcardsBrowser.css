@@ -1,0 +1,30 @@
+.card__actions {
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    transition: 0.3s;
+    left: 0;
+}
+  
+.card__button {
+    cursor: pointer;
+    padding: 0.5em 0.75em;
+    background: #c3baba;
+    color: #444;
+    transition: 0.2s;
+    border-radius: 50%;
+    
+    &:hover {
+      background: darken(#c3baba, 10%);
+    }
+}
+  
+.card__next-button {
+    margin-left: 0.5em;
+}
+  
+.card__prev-button {
+    margin-right: 0.5em;
+}
