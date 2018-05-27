@@ -3,6 +3,7 @@
     bottom: 10%;
     display: flex;
     width: 100%;
+    height: 90px;
     justify-content: center;
     transition: 0.3s;
     left: 0;
@@ -15,16 +16,38 @@
     color: #444;
     transition: 0.2s;
     border-radius: 50%;
-    
-    &:hover {
-      background: darken(#c3baba, 10%);
-    }
+    height: 55px;
 }
-  
+
+.card__button:hover, card__button:focus {
+    background: #444  !important;
+    color: #c3baba !important;
+}
+
 .card__next-button {
     margin-left: 0.5em;
 }
-  
+
+.card__next-button:active {
+    padding: 1em 1.5em;
+    height: 65px;
+}
+
 .card__prev-button {
     margin-right: 0.5em;
+}
+
+.card__prev-button:active {
+    padding: 1em 1.5em;
+    height: 65px;
+}
+
+card__actions > .a:active, a:focus {
+    color: #444 !important;
+}
+
+.disable-link {
+    pointer-events: none;
+    background: #ecebeb !important;
+    color: #fff !important;
 }

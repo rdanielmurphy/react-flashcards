@@ -30,7 +30,7 @@ class Flashcard extends React.Component {
           }
         }}
       >
-        <div className="markdownContainer">
+        <div className="markdownContainer noselect">
           <ReactMarkdown className={'card__content--' + contentClass} source={content} />
         </div>
       </div >

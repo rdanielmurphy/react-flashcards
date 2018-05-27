@@ -12,6 +12,7 @@ class AppContainer extends Component {
                 <NavBar></NavBar>
                 <Switch>
                     <Route path='/:id/:number' component={FlashcardsBrowser} />
+                    <Route path='*' component={FlashcardsBrowser} />
                 </Switch>
             </div>
         );

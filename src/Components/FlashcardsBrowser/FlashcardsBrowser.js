@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FlashcardsContainer from '../FlashcardsContainer/FlashcardsContainer';
 import './FlashcardsBrowser.css';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import StaticDataService from '../../Services/StaticDataService';
 
 class FlashcardsBrowser extends Component {
@@ -41,10 +41,25 @@ class FlashcardsBrowser extends Component {
     }
 
     render() {
-        let flashcardData = StaticDataService.getCards(this.props.match.params.id)[this.props.match.params.id];
+        console.log(this.props.match.params);
 
-        // Valid URL
-        if (flashcardData) {
+        let flashcardData = StaticDataService.getCards()[this.props.match.params.id];
+
+        // no params
+        if (!this.props.match.params.id) {
+            let firstInList = Object.keys(StaticDataService.getCards())[0];
+            return <Redirect to={'/' + firstInList + '/1'} />
+        }
+        // valid URL
+        else if (flashcardData) {
+            // check range
+            if (this.props.match.params.number !== "finish") {
+                let parsedInt = parseInt(this.props.match.params.number, 10);
+                if (parsedInt > flashcardData.cards.questions.length || parsedInt < 1 || isNaN(parsedInt))
+                    return <Redirect to={'/' + this.props.match.params.id + '/1'} /> //bad range
+            }
+
+            // good range
             let backUrl = this.getBackUrl(flashcardData, this.props.match.params);
             let nextUrl = this.getNextUrl(flashcardData, this.props.match.params);
 
@@ -52,16 +67,12 @@ class FlashcardsBrowser extends Component {
                 <div>
                     <FlashcardsContainer groupId={this.props.match.params.id} cardNum={this.props.match.params.number}></FlashcardsContainer>
                     <div className={'card__actions'}>
-                        {backUrl &&
-                            < Link className="card__button card__prev-button" to={backUrl}>
-                                <span className={'fa fa-arrow-circle-left fa-3x'} />
-                            </Link>
-                        }
-                        {nextUrl &&
-                            <Link className="card__button card__next-button" to={nextUrl}>
-                                <span className={'fa fa-arrow-circle-right fa-3x'} />
-                            </Link>
-                        }
+                        <Link className={(!backUrl ? 'disable-link' : '') + ' card__button card__prev-button'} to={backUrl ? backUrl : ''}>
+                            <span className={'fa fa-arrow-circle-left fa-3x'} />
+                        </Link>
+                        <Link className={(!nextUrl ? 'disable-link' : '') + ' card__button card__next-button'} to={nextUrl ? nextUrl : ''}>
+                            <span className={'fa fa-arrow-circle-right fa-3x'} />
+                        </Link>
                     </div>
                 </div >
             );
