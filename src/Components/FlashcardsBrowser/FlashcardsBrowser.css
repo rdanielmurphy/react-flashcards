@@ -12,46 +12,12 @@
     -o-transition: .3s;
     transition: .3s;
 }
-  
-.card__button {
-    cursor: pointer;
-    padding: 0.5em 0.75em;
-    background: #c3baba;
-    color: #444;
-    transition: 0.2s;
-    border-radius: 50%;
-    height: 55px;
+
+.card__actions > a {
+    margin: 5px !important;
 }
 
-.card__button:hover, card__button:focus {
-    background: #444  !important;
-    color: #c3baba !important;
-}
-
-.card__next-button {
-    margin-left: 0.5em;
-}
-
-.card__next-button:active {
-    padding: 1em 1.5em;
-    height: 65px;
-}
-
-.card__prev-button {
-    margin-right: 0.5em;
-}
-
-.card__prev-button:active {
-    padding: 1em 1.5em;
-    height: 65px;
-}
-
-card__actions > .a:active, a:focus {
-    color: #444 !important;
-}
-
-.disable-link {
-    pointer-events: none;
-    background: #ecebeb !important;
-    color: #fff !important;
+.flashcardsHeader {
+    text-align: center;
+    margin-top: 10px !important;
 }

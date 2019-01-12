@@ -215,7 +215,7 @@ code {
 }
 
 .markdownContainer {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .card__button .fa-thumbs-up {

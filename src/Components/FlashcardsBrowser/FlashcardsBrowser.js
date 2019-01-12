@@ -3,8 +3,25 @@ import FlashcardsContainer from '../FlashcardsContainer/FlashcardsContainer';
 import './FlashcardsBrowser.css';
 import { Link, Redirect } from 'react-router-dom'
 import StaticDataService from '../../Services/StaticDataService';
+import Typography from '@material-ui/core/Typography';
+import { ArrowLeft, ArrowRight } from '@material-ui/icons';
+import Fab from '@material-ui/core/Fab';
 
 class FlashcardsBrowser extends Component {
+    componentDidMount() {
+        this.setAppTitle();
+    }
+
+    componentDidUpdate() {
+        this.setAppTitle();
+    }
+
+    setAppTitle() {
+        let flashcardData = StaticDataService.getCards()[this.props.match.params.id];
+        if (flashcardData) {
+            document.title = flashcardData.name + ' Flashcards';
+        }
+    }
 
     getBackUrl(flashcardData, params) {
         let url;
@@ -41,8 +58,6 @@ class FlashcardsBrowser extends Component {
     }
 
     render() {
-        console.log(this.props.match.params);
-
         let flashcardData = StaticDataService.getCards()[this.props.match.params.id];
 
         // no params
@@ -52,27 +67,41 @@ class FlashcardsBrowser extends Component {
         }
         // valid URL
         else if (flashcardData) {
-            // check range
+            // get current card number
+            let currentCardNumber = -1;
             if (this.props.match.params.number !== "finish") {
-                let parsedInt = parseInt(this.props.match.params.number, 10);
-                if (parsedInt > flashcardData.cards.questions.length || parsedInt < 1 || isNaN(parsedInt))
-                    return <Redirect to={'/' + this.props.match.params.id + '/1'} /> //bad range
+                currentCardNumber = parseInt(this.props.match.params.number, 10);
+            }
+
+            // bad range...redirect
+            if (this.props.match.params.number !== "finish" &&
+                (currentCardNumber > flashcardData.cards.questions.length || currentCardNumber < 1 || isNaN(currentCardNumber))) {
+                return <Redirect to={'/' + this.props.match.params.id + '/1'} /> //bad range
             }
 
             // good range
             let backUrl = this.getBackUrl(flashcardData, this.props.match.params);
             let nextUrl = this.getNextUrl(flashcardData, this.props.match.params);
 
+            // build header status
+            let headerStatus = ' Finished!';
+            if (this.props.match.params.number !== "finish") {
+                headerStatus = " (" + currentCardNumber + "/" + flashcardData.cards.questions.length + ")";
+            }
+
             return (
                 <div>
+                    <Typography variant="h5" color="inherit" className='flashcardsHeader'>
+                        {flashcardData.name + headerStatus}
+                    </Typography>
                     <FlashcardsContainer groupId={this.props.match.params.id} cardNum={this.props.match.params.number}></FlashcardsContainer>
                     <div className={'card__actions'}>
-                        <Link className={(!backUrl ? 'disable-link' : '') + ' card__button card__prev-button'} to={backUrl ? backUrl : ''}>
-                            <span className={'fa fa-arrow-circle-left fa-3x'} />
-                        </Link>
-                        <Link className={(!nextUrl ? 'disable-link' : '') + ' card__button card__next-button'} to={nextUrl ? nextUrl : ''}>
-                            <span className={'fa fa-arrow-circle-right fa-3x'} />
-                        </Link>
+                        <Fab className={'card__action__button'} aria-label="Previous Flashcard" color="primary" disabled={!backUrl} component={Link} to={backUrl ? backUrl : ''}>
+                            <ArrowLeft fontSize="large" disabled={!backUrl}></ArrowLeft>
+                        </Fab>
+                        <Fab className={'card__action__button'} aria-label="Next Flashcard" color="primary" disabled={!nextUrl} component={Link} to={nextUrl ? nextUrl : ''}>
+                            <ArrowRight fontSize="large" disabled={!nextUrl}></ArrowRight>
+                        </Fab>
                     </div>
                 </div >
             );

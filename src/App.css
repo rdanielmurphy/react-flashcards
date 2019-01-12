@@ -84,3 +84,7 @@ float: left;
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+
+.MuiModal-hidden-108 {
+  visibility: unset !important;
+}
