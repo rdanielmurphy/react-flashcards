@@ -25,7 +25,7 @@ class FlashcardsContainer extends React.Component {
     }
 
     return (
-      <div className="container gridContainer">
+      <div className="container">
         <div className="row">
           <div className="col-md-12">
             <Flashcard

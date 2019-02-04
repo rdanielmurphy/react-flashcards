@@ -1,32 +1,21 @@
 .menu-item {
-    color: #b8b7ad;
-    font-family: 'Raleway', Arial, sans-serif;
-    text-decoration: none;
+    padding:15px;
 }
 
-.flashcardnavbar {
-  z-index: 100;
-  width: 100%;
-  background-color: lightgrey;
-  position: fixed;
-  margin: auto;
+.left-drawer {
+    width: 300px;
+    margin-top: 30px;
 }
 
-.navbarHeader {
-  width: 100%;
-  background-color: lightgrey;
-  height: 3em;
-  text-align: center;
-  line-height: 50px;
-  margin: auto;
+.menu-item-text {
+    display: inline !important;
 }
 
-.navbarSubHeader {
-  width: 100%;
-  background-color: black;
-  color: white;
-  height: 2em;
-  text-align: center;
-  line-height: 25px;
-  margin: auto;
+.menu-button {
+    margin-left: -12;
+    margin-right: 20;
+}
+
+.grow {
+    flex-grow: 1;
 }
