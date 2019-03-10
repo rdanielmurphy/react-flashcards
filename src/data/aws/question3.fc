@@ -1,0 +1,7 @@
+===QUESTION===
+What is difference between EBS volume and Instance stores? 
+
+===ANSWER===
+**The instance store** is ideal for temporary storage, because the data stored in instance store volumes is not persistent through instance stops, terminations, or hardware failures.
+
+For data you want to retain longer, or if you want to encrypt the data, use **Amazon Elastic Block Store (Amazon EBS) volumes** instead. EBS volumes preserve their data through instance stops and terminations, can be easily backed up with EBS snapshots, can be removed from one instance and reattached to another, and support full-volume encryption. 

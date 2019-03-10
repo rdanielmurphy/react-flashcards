@@ -1,0 +1,5 @@
+===QUESTION===
+What AWS service allows Chef and Puppet to automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments?
+
+===ANSWER===
+AWS OpsWorks

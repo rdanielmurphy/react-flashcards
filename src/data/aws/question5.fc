@@ -1,0 +1,7 @@
+===QUESTION===
+What is it the name of the deployment strategy where when deploying an application to production, two separate, but identical, 
+environments are created.  One live, and one a clone of the live environment.  And when the deployment of the clone is successful, 
+the CI/CD pipeline then swaps the URLs between the two environments and terminates the original.
+
+===ANSWER===
+Blue-Green Deployment
