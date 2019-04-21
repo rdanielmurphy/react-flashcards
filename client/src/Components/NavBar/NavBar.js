@@ -1,4 +1,3 @@
-import Drawer from '@material-ui/core/Drawer';
 import React, { Component } from 'react';
 import StaticDataService from '../../Services/StaticDataService';
 import './NavBar.css';
