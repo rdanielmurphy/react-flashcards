@@ -11,6 +11,7 @@ COPY .babelrc index.js nodemon.json config/polyfills.js config/env.js config/pat
 COPY client ./client
 COPY scripts ./scripts
 COPY public ./public
+COPY server/data ./server
 COPY Intl ./Intl
 COPY server ./server
 CMD ["npm", "start"]

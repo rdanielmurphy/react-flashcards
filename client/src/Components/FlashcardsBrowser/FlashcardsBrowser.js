@@ -28,7 +28,7 @@ class FlashcardsBrowser extends Component {
 
         if (params.number === "finish") {
             // if at finish card, back button goes to last card
-            url = '/' + params.id + '/' + (flashcardData.cards.questions.length);
+            url = '/' + params.id + '/' + (flashcardData.cards.length);
         } else {
             let num = parseInt(params.number, 10);
             // not at beginning, go back one
@@ -47,7 +47,7 @@ class FlashcardsBrowser extends Component {
             let num = parseInt(params.number, 10);
 
             // at end so go to finish
-            if (num === flashcardData.cards.questions.length) {
+            if (num === flashcardData.cards.length) {
                 url = '/' + params.id + '/finish';
             } else {
                 url = '/' + params.id + '/' + (num + 1);
@@ -75,7 +75,7 @@ class FlashcardsBrowser extends Component {
 
             // bad range...redirect
             if (this.props.match.params.number !== "finish" &&
-                (currentCardNumber > flashcardData.cards.questions.length || currentCardNumber < 1 || isNaN(currentCardNumber))) {
+                (currentCardNumber > flashcardData.cards.length || currentCardNumber < 1 || isNaN(currentCardNumber))) {
                 return <Redirect to={'/' + this.props.match.params.id + '/1'} /> //bad range
             }
 
@@ -86,7 +86,7 @@ class FlashcardsBrowser extends Component {
             // build header status
             let headerStatus = ' Finished!';
             if (this.props.match.params.number !== "finish") {
-                headerStatus = " (" + currentCardNumber + "/" + flashcardData.cards.questions.length + ")";
+                headerStatus = " (" + currentCardNumber + "/" + flashcardData.cards.length + ")";
             }
 
             return (

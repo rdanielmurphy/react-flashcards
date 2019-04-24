@@ -1,19 +1,43 @@
-import FlashCardData from '../data/flashcard.data';
+let allFlashcardData;
+
+const createCategory = (id, name) => {
+    return {
+        id: id,
+        name: name,
+        cards: []
+    }
+};
 
 const StaticDataService = {
     listeners: [],
+    loadCards() {
+        return fetch('/api/questions')
+            .then(response => response.json())
+            .then(data => this.populateCardData(data));
+    },
+    populateCardData(data) {
+        allFlashcardData = {};
+
+        data.categories.data.forEach((catObj) => {
+            allFlashcardData[catObj.key] = createCategory(catObj.key, catObj.name);
+        });
+
+        data.questions.forEach((q) => {
+            allFlashcardData[q.category].cards.push(q);
+        });
+    },
     addCardChangeListener(listener) {
         this.listeners.push(listener);
     },
     getCards() {
-        return FlashCardData;
+        return allFlashcardData;
     },
     getCard(id, num) {
-        var flashcardData = FlashCardData[id];
+        var flashcardData = allFlashcardData[id];
         var name, max;
         if (flashcardData) {
             name = flashcardData.name;
-            max = flashcardData.cards.questions.length;
+            max = flashcardData.cards.length;
         }
 
         if (this.listeners && this.listeners.length > 0) {
@@ -22,8 +46,8 @@ const StaticDataService = {
             });
         }
 
-        if (flashcardData && flashcardData.cards.questions[num]) {
-            return FlashCardData[id].cards.questions[num];
+        if (flashcardData && flashcardData.cards[num]) {
+            return allFlashcardData[id].cards[num];
         }
 
         return null;

@@ -1,8 +1,7 @@
 var parser = require("./fcparser");
 
 function flashCardLoader(input) {
-  var file = parser.parseFile(input);
-  return "export default " + JSON.stringify(file) + ";";
+  return parser.parseFile(input);
 }
 
-module.exports.default = flashCardLoader;
+module.exports = flashCardLoader;

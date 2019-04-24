@@ -12,8 +12,6 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
-console.log('we in config dev');
-
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -139,11 +137,6 @@ module.exports = {
               limit: 10000,
               name: 'static/media/[name].[hash:8].[ext]',
             },
-          },
-          // Process Flashcard files
-          {
-            test: /\.fc$/,
-            use: ['./scripts/compiler.js']
           },
           // Process JS with Babel.
           {

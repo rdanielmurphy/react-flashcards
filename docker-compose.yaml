@@ -24,6 +24,7 @@ services:
       - ./scripts/compiler.js:/usr/src/app/scripts/compiler.js
       - ./scripts/fcparser.js:/usr/src/app/scripts/fcparser.js
       - ./public:/usr/src/app/public
+      - ./server/data:/usr/src/app/data
       - ./config/webpack.config.babel.js:/usr/src/app/config/webpack.config.babel.js
       - ./config/webpack.config.dev.js:/usr/src/app/config/webpack.config.dev.js
       - ./config/webpack.config.prod.js:/usr/src/app/config/webpack.config.prod.js
