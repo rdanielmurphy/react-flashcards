@@ -4,6 +4,7 @@ import FlashcardsBrowser from '../FlashcardsBrowser/FlashcardsBrowser';
 import NavBar from '../NavBar/NavBar';
 import { Switch, Route } from 'react-router-dom';
 import StaticDataService from '../../Services/StaticDataService';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class AppContainer extends Component {
     constructor(props) {
@@ -33,8 +34,9 @@ class AppContainer extends Component {
             );
         } else {
             return (
-                <div>
-                    <h2> we loading </h2>
+                <div className="loading">
+                    <h2> Loading ... </h2>
+                    <CircularProgress size={100} />
                 </div>
             );
         }
