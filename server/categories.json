@@ -1,0 +1,36 @@
+{
+    "data": [
+        {
+            "key": "aws",
+            "name": "AWS"
+        },
+        {
+            "key": "blockchain",
+            "name": "Blockchain"
+        },
+        {
+            "key": "gre",
+            "name": "GRE"
+        },
+        {
+            "key": "htmlcss",
+            "name": "HTML/CSS"
+        },
+        {
+            "key": "java",
+            "name": "Java"
+        },
+        {
+            "key": "javascript",
+            "name": "Javascript"
+        },
+        {
+            "key": "puzzles",
+            "name": "Puzzles"
+        },
+        {
+            "key": "theory",
+            "name": "CS Theory"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+version: '3.4'
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: development
+    depends_on:
+      - db
+    ports:
+      - "${WEB_PORT:-8000}:8000"
+    volumes:
+      - ./client:/usr/src/app/client
+      - ./Intl:/usr/src/app/Intl
+      - ./server:/usr/src/app/server
+      - ./.babelrc:/usr/src/app/.babelrc
+      - ./index.js:/usr/src/app/index.js
+      - ./nodemon.json:/usr/src/app/nodemon.json
+      - ./package.json:/usr/src/app/package.json
+      - ./package-lock.json:/usr/src/app/package-lock.json
+      - ./config/env.js:/usr/src/app/config/env.js
+      - ./config/paths.js:/usr/src/app/config/paths.js
+      - ./config/polyfills.js:/usr/src/app/config/polyfills.js
+      - ./scripts/compiler.js:/usr/src/app/scripts/compiler.js
+      - ./scripts/fcparser.js:/usr/src/app/scripts/fcparser.js
+      - ./public:/usr/src/app/public
+      - ./server/data:/usr/src/app/data
+      - ./config/webpack.config.babel.js:/usr/src/app/config/webpack.config.babel.js
+      - ./config/webpack.config.dev.js:/usr/src/app/config/webpack.config.dev.js
+      - ./config/webpack.config.prod.js:/usr/src/app/config/webpack.config.prod.js
+      - ./config/webpack.config.server.js:/usr/src/app/config/webpack.config.server.js
+    environment:
+      NODE_ENV: development
+      MONGO_URL: mongodb://db:27017/mern-starter
+    stdin_open: true
+    tty: true
+  db:
+    image: mongo:latest
+    volumes:
+      - dbdata:/data/db
+volumes:
+  dbdata:
