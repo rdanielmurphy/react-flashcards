@@ -1,16 +1,14 @@
-Simple flashcard app written in React!
+Simple MERN stack flashcard app! 
 
-Flashcard data is in JSON under data folder.
+Qustion and answers are in Markdown format, giving you some formatting flexibility.
 
-Not keeping score yet.
+Flashcard data under server/data folder and is loaded into Mongo at startup.  Categories file is at server/categories.json.  Update it when adding/removing/modifiying a category.   Add flashcards by creating .fc files, copying question/answer format from examples.
 
-try at http://flashcards.rdanielmurphy.com
+try static example at http://flashcards.rdanielmurphy.com
 
 Started from flashcard example here:
 https://codepen.io/mattgreenberg/pen/ggOpOr
 
 To run:
-npm start or yarn start
-
-To do a build:
-npm run build or yarn build
+docker-compose build
+docker-compose up
