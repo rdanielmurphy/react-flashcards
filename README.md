@@ -1,4 +1,4 @@
-Simple MERN stack flashcard app! 
+## Simple MERN stack flashcard app! ##
 
 Qustion and answers are in Markdown format, giving you some formatting flexibility.
 
@@ -9,6 +9,8 @@ try static example at http://flashcards.rdanielmurphy.com
 Started from flashcard example here:
 https://codepen.io/mattgreenberg/pen/ggOpOr
 
-To run:
-docker-compose build
-docker-compose up
+### To run: ###
+```
+ docker-compose build
+ docker-compose up
+```
